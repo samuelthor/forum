@@ -5,6 +5,6 @@
     <title></title>
   </head>
   <body>
-    <h1>Hello im Samuel</h1>
+    <h1>This greeting is number {{$id}} with {{ $count }} messages</h1>
   </body>
 </html>
