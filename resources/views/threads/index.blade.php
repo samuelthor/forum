@@ -8,10 +8,15 @@
             @foreach ($threads as $thread)
               <div class="panel panel-default">
                 <!-- Default panel contents -->
-                <div class="panel-heading"><b><p> {{ $thread["title"] }} </p></b></div>
+                <div class="panel-heading"><b><p> {{ $thread->title }} </p></b></div>
+
+
                 <ul class="list-group">
+
                   <div class="list-group-item">
-                    <p>{{ $thread["body"]}}</p>
+
+                    <p>{{ $thread->message }}</p>
+                    
                   </div>
                 </ul>
               </div>
