@@ -9,14 +9,15 @@
 
 
                 <div class="panel-body">
-
+                  <form method="POST" action="/threads">
+                    {{ csrf_field() }}
                   <label for="comment">Title</label>
                     <input class="form-control" rows="1" id="comment"></input>
 
                   <label for="comment">Body</label>
                     <textarea class="form-control" rows="10" id="comment"></textarea>
                     <br>
-                    <button type="button" class="btn btn-primary">Publish</button>
+                    <button type="submit" class="btn btn-primary">Publish</button>
                 </div>
             </div>
             <ul>
@@ -33,7 +34,7 @@
                 <li>
 
                   <a href="{{ $task['anchor'] }}">
-                    
+
                     <s> {{ $task['title'] }} </s>
 
                 </li>
