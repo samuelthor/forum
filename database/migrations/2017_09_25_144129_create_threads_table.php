@@ -17,6 +17,7 @@ class CreateThreadsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('message');
+            $table->boolean('active')->default(true);
             $table->unsignedInteger('eigandi');
             $table->foreign('eigandi')-> references ('id')->on('users');
             $table->timestamps();
