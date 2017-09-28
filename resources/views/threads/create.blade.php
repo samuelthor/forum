@@ -14,34 +14,12 @@
                   <label for="comment">Title</label>
                     <input class="form-control" rows="1" id="comment"></input>
 
-                  <label for="comment">Body</label>
+                  <label for="comment">Message</label>
                     <textarea class="form-control" rows="10" id="comment"></textarea>
                     <br>
                     <button type="submit" class="btn btn-primary">Publish</button>
                 </div>
             </div>
-            <ul>
-            @foreach ($tasks as $task)
-
-              @if ( ! $task['complete'])
-                <li>
-                  <a href="{{ $task['anchor'] }}">
-
-                    {{ $task['title']}}
-
-                </li>
-              @else
-                <li>
-
-                  <a href="{{ $task['anchor'] }}">
-
-                    <s> {{ $task['title'] }} </s>
-
-                </li>
-              @endif
-
-            @endforeach
-          </ul>
         </div>
     </div>
 </div>
