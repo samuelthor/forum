@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Thread;
 
 class ThreadsController extends Controller
 {
@@ -12,7 +13,8 @@ class ThreadsController extends Controller
 
 
       public function index(){
-        $threads = DB::table('threads')->get();
+        $threads = Thread::all();
+        // $threads = DB::table('threads')->get();
 
         return view('threads.index',compact('threads'));
       }
@@ -30,13 +32,20 @@ class ThreadsController extends Controller
 
     public function show($id){
 
-      $thread = DB::table('threads')->where('id', $id)->first();
+      $thread = Thread::find($id);
+      // $thread = DB::table('threads')->where('id', $id)->first();
       // dd($thread);
 
       return view('threads.show', compact('thread'));
     }
 
-    public function store(){
-      dd('Store method');
+    public function store(Request $request){
+      $thread = new Thread;
+      $thread->title = $request->title;
+      $thread->message = $request->message;
+      $thread->eigandi = 1;
+      $thread->save();
+
+      return redirect('/threads');
     }
 }
