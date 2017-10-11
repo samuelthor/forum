@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Thread;
+use Validator;
+
 
 class ThreadsController extends Controller
 {
@@ -44,8 +46,24 @@ class ThreadsController extends Controller
       $thread->title = $request->title;
       $thread->message = $request->message;
       $thread->eigandi = 1;
+
+      $validator = Validator::make($request->all(), [
+        'title' => 'required|unique:threads|max:40',
+        'message' => 'required|min:20'
+      ]);
+
+
+      if ($validator->fails()){
+        return redirect('/threads/create')
+              ->withInput()
+              ->withErrors($validator);
+      }
+
       $thread->save();
 
       return redirect('/threads');
     }
+
+
+
 }

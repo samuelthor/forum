@@ -13,6 +13,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style media="screen">
+      textarea{
+        resize: none;
+      }
+    </style>
 </head>
 <body>
     <div id="app">
